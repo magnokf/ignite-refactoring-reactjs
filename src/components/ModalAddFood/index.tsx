@@ -8,14 +8,11 @@ import { FormHandles } from "@unform/core";
 
 //typescript language
 
-interface Food {
-	id: number;
+interface AddFood {
 	name: string;
 	description: string;
 	price: string;
-	available: boolean;
 	image: string;
-	placeholder: string;
 }
 
 interface ModalAddFoodProps {
@@ -31,7 +28,7 @@ export default function ModalAddFood({
 }: ModalAddFoodProps) {
 	const formRef = useRef<FormHandles>(null);
 
-	const handleSubmit = async (data: Food) => {
+	const handleSubmit = async (data: AddFood) => {
 		handleAddFood(data);
 		setIsOpen();
 	};

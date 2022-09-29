@@ -16,6 +16,9 @@ interface FoodProps {
 	image: string;
 }
 
+
+
+
 export default function Dashboard() {
 	const [foods, setFoods] = useState<FoodProps[]>([]);
 
