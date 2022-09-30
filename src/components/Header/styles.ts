@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-interface ContainerProps {
-  available: boolean;
-}
 
-export const Container = styled.div<ContainerProps>`
+
+export const Container = styled.div`
   background: #c72828;
   padding: 30px 0;
 

@@ -1,5 +1,5 @@
-import { Component, createRef, useRef } from "react";
-import { FiCheckSquare, FiUpload } from "react-icons/fi";
+import { useRef } from "react";
+import { FiCheckSquare } from "react-icons/fi";
 
 import { Form } from "./styles";
 import Modal from "../Modal";
@@ -7,7 +7,7 @@ import Input from "../Input";
 import { FormHandles } from "@unform/core";
 
 //typescript language
-interface IFood {
+interface Meal {
 	id: number;
 	name: string;
 	description: string;
@@ -16,18 +16,11 @@ interface IFood {
 	image: string;
 }
 
-interface AddFood {
-	name: string;
-	description: string;
-	price: string;
-	image: string;
-}
-
-interface ModalEditFoodProps {
+interface ModalEditMealProps {
 	isOpen: boolean;
 	setIsOpen: () => void;
-	handleUpdateFood: (data: AddFood) => void;
-	editingFood: IFood;
+	handleUpdateFood: (data: Meal) => void;
+	editingFood: Meal;
 }
 
 export default function ModalEditFood({
@@ -35,10 +28,10 @@ export default function ModalEditFood({
 	setIsOpen,
 	editingFood,
 	handleUpdateFood,
-}: ModalEditFoodProps) {
+}: ModalEditMealProps) {
 	const formRef = useRef<FormHandles>(null);
 
-	const handleSubmit = async (data: AddFood) => {
+	const handleSubmit = async (data: Meal) => {
 		handleUpdateFood(data);
 		setIsOpen();
 	};

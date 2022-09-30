@@ -21,7 +21,7 @@ const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
 
 	const [isFilled, setIsFilled] = useState(false);
 	
-	const [isErrored, setIsErrored] = useState(false);
+
 
 	const handleInputBlur = useCallback(() => {
 		setIsFocused(false);
@@ -43,7 +43,6 @@ const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
 
 	return (
 		<Container
-			isErrored={!!isErrored}
 			isFilled={isFilled}
 			isFocused={isFocused}>
 			{Icon && <Icon size={20} />}

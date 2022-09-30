@@ -1901,6 +1901,13 @@
   "resolved" "https://registry.npmjs.org/@types/q/-/q-1.5.5.tgz"
   "version" "1.5.5"
 
+"@types/react-dom@^18.0.6":
+  "integrity" "sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA=="
+  "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.6.tgz"
+  "version" "18.0.6"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-icons@^3.0.0":
   "integrity" "sha512-Vefs6LkLqF61vfV7AiAqls+vpR94q67gunhMueDznG+msAkrYgRxl7gYjNem/kZ+as2l2mNChmF1jRZzzQQtMg=="
   "resolved" "https://registry.npmjs.org/@types/react-icons/-/react-icons-3.0.0.tgz"

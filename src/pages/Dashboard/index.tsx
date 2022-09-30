@@ -1,4 +1,4 @@
-import { Component, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Header from "../../components/Header";
 import api from "../../services/api";
@@ -7,22 +7,19 @@ import ModalAddFood from "../../components/ModalAddFood";
 import ModalEditFood from "../../components/ModalEditFood";
 import { FoodsContainer } from "./styles";
 
-interface FoodProps {
+interface Meal {
 	id: number;
 	name: string;
 	description: string;
-	price: string;
+	price: number;
 	available: boolean;
 	image: string;
 }
 
-
-
-
 export default function Dashboard() {
-	const [foods, setFoods] = useState<FoodProps[]>([]);
+	const [foods, setFoods] = useState<Meal[]>([]);
 
-	const [editingFood, setEditingFood] = useState<FoodProps>({} as FoodProps);
+	const [editingFood, setEditingFood] = useState<Meal>({} as Meal);
 
 	const [modalOpen, setModalOpen] = useState(false);
 
@@ -38,9 +35,7 @@ export default function Dashboard() {
 		loadFoods();
 	}, []);
 
-	async function handleAddFood(
-		food: FoodProps
-	): Promise<void> {
+	async function handleAddFood(food: Meal): Promise<void> {
 		try {
 			const response = await api.post("/foods", {
 				...food,
@@ -53,7 +48,7 @@ export default function Dashboard() {
 		}
 	}
 
-	async function handleUpdateFood(food: FoodProps): Promise<void> {
+	async function handleUpdateFood(food: Meal): Promise<void> {
 		try {
 			const foodUpdated = await api.put(`/foods/${editingFood.id}`, {
 				...editingFood,
@@ -76,21 +71,20 @@ export default function Dashboard() {
 		const foodsFiltered = foods.filter(food => food.id !== id);
 
 		setFoods(foodsFiltered);
-	}
+	};
 
 	const toggleModal = () => {
 		setModalOpen(!modalOpen);
-	}
+	};
 
-	const toggleEditModal =() => {
+	const toggleEditModal = () => {
 		setEditModalOpen(!editModalOpen);
-	}
+	};
 
-	const handleEditFood = (food: FoodProps) => {
-    setEditModalOpen(true);
+	const handleEditFood = (food: Meal) => {
+		setEditModalOpen(true);
 		setEditingFood(food);
-		
-	}
+	};
 
 	return (
 		<>

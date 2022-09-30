@@ -6,7 +6,7 @@ import api from "../../services/api";
 
 // Language: typescript
 
-interface IFood {
+interface Meal {
 	id: number;
 	name: string;
 	description: string;
@@ -15,17 +15,17 @@ interface IFood {
 	image: string;
 }
 
-interface FoodProps {
-	food: IFood;
+interface MealProps {
+	food: Meal;
 	handleDelete: (id: number) => void;
-	handleEditFood: (food: IFood) => void;
+	handleEditFood: (food: Meal) => void;
 }
 
 export default function Food({
 	food,
 	handleEditFood,
 	handleDelete,
-}: FoodProps) {
+}: MealProps) {
 	const { available } = food;
 	const [isAvailable, setIsAvailable] = useState(available);
 
@@ -96,5 +96,3 @@ export default function Food({
 		</Container>
 	);
 }
-
-
